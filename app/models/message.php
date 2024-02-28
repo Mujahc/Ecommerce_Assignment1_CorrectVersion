@@ -2,31 +2,53 @@
 
 namespace app\models;
 
-class Message{
+class Message
+{
     // The Message model class has three properties: name, email, and IP, and 2 functions: read and write.
     public $name;
     public $email;
     public $IP;
 
-    public static function read(){
-        // The read method opens the /resources/messages.txt file with the file() function and returns the result.
-		return file("/resources/messages.txt");
-	}
+    public function __construct($object = null)
+    {
+        if ($object == null) {
+            return;
+        }
 
-    public function write(){
-		// 1. json_encode this object into $message;
-        $message = json_encode($this);
+        $this->name = $object->name;
+        $this->email = $object->email;
+        $this->IP = $object->IP;
+    }
 
-        // 2. Open the /resources/messages.txt file for appending (use fopen);
-        $file = fopen("/resources/messages.txt", "a");
 
-        // 3. Lock the file for writing (use flock);
-        flock($file, LOCK_EX);
+    public static function read()
+    {
+        //read the file and return the collection of people (all Person records)
+        $filename = 'resources/messages.txt';
+        $records = file($filename);
+        //TODO: process the JSON strings into objects
+        foreach ($records as $key => $value) {
+            //can I typecase objects in PHP?
+            $object = json_decode($value);
+            $person = new \app\models\message($object);
+            $records[$key] = $person;
+        }
+        return $records;
+    }
 
-        // 4. write contents of $message and concatenate with a \n (use fwrite).
-        fwrite($file, $message . "\n");
-
-        // 5. Close the file handler (use fclose)
-        fclose($file);
-	}
+    public function write()
+    {
+        $filename = 'resources/messages.txt';
+        //open a file for writing (append)
+        $file_handle = fopen($filename, 'a'); //a is for append, w for writing from the start
+        //obtain exclusive access to the file to avoid data corruption
+        flock($file_handle, LOCK_EX);
+        //format the data and write to the file
+        $data = json_encode($this);
+        fwrite($file_handle, $data . "\n");//place a single record on each line
+        //release the exclusive access to the file
+        flock($file_handle, LOCK_UN);
+        //close the file
+        fclose($file_handle);
+    }
 }

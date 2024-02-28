@@ -22,7 +22,7 @@
 
     <h1>Contact us - message sent</h1>
     <?php
-		foreach($data as $message){
+		foreach($data as $index => $message){
 			echo 
                 "<tr>
                     <td>$message->email</td>
