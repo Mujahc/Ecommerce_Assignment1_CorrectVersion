@@ -1,0 +1,20 @@
+#numOfPageVisits {
+    margin: 5px;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+}
+
+img {
+    height: 250px;
+    width: auto;
+}
+
+.picture-group {
+    margin: 20px;
+    float: left;
+}
+
+.picture-group p{
+    width: 250px;
+}
