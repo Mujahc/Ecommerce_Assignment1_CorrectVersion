@@ -26,11 +26,11 @@
     <form action="/Contact/submit" method="POST">
         <div class="form-group">
             <label for="email">Email:</label>
-            <input type="email" id="email">
+            <input type="email" id="email" name="email">
         </div>
         <div class="form-group">
             <label for="message">Message:</label>
-            <textarea name="message" id="message" cols="30" rows="10"></textarea>
+            <textarea name="name" id="message" cols="30" rows="10"></textarea>
         </div>
         <div class="form-group">
             <button id="send_Btn" type="submit">Send!</button>

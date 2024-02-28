@@ -26,7 +26,7 @@
 			echo 
                 "<tr>
                     <td>$message->email</td>
-                    <td>$message->message</td>
+                    <td>$message->name</td>
                 </tr>";
 		}
     ?>
