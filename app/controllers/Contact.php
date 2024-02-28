@@ -2,7 +2,7 @@
 
 namespace app\controllers;
 
-use app\models\Message;
+use stdClass;
 
 class Contact extends \app\core\Controller
 {
@@ -12,28 +12,27 @@ class Contact extends \app\core\Controller
 
     public function submit()
     {
-        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $message = new Message(
-                $_POST['email'],
-                $_POST['message'],
-                $_SERVER['REMOTE_ADDR']
-            );
+        //call a view to show the submitted data
+		//collect the data
+		//declare a person object
+		$message = new \app\models\Message();
+		//populate the properties
+		$message->name = $_POST['name'];
+		$message->email = $_POST['email'];
+		$message->IP = $_SERVER['REMOTE_ADDR'];
+		//$person->mailing_list = $_POST['mailing_list'] ?? 'unselected';//null coalescing to avoid warnings when no option of a radio button is selected
+		//hypothetically insert into a database
+		$message->write(); //add the person to the data file
+		//show the feedback view to confirm with the user
+		//$this->view('Person/complete_registration',$person);
 
-            $message->write();
-            header('location:/Contact/read');
-        } else {
-            throw new \Exception('Invalid request method');
-        }
+		//redirect the user back to the list
+		header('location:/Contact/read');
     }
 
     public function read() {
-        // Create a new Message object
-        $messageModel = new Message();
+      $message = \app\models\Message::read();
 
-        // Read messages from the file
-        $messages = $messageModel->read();
-
-        // Pass data to the view
-        $this->view('Contact/read', ['messages' => $messages]);
+      $this->view('Contact/read', $message);
     }
 }

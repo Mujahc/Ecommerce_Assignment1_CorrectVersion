@@ -23,7 +23,7 @@
     <h1>Contact us</h1>
     <p>Wanna reach us? Write your email information and message in the following form and then submit.</p>
 
-    <form action="/Contact/submit">
+    <form action="/Contact/submit" method="POST">
         <div class="form-group">
             <label for="email">Email:</label>
             <input type="email" id="email">
@@ -33,7 +33,7 @@
             <textarea name="message" id="message" cols="30" rows="10"></textarea>
         </div>
         <div class="form-group">
-            <button id="send_Btn">Send!</button>
+            <button id="send_Btn" type="submit">Send!</button>
         </div>
     </form>
 

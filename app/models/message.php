@@ -30,7 +30,7 @@ class Message
         foreach ($records as $key => $value) {
             //can I typecase objects in PHP?
             $object = json_decode($value);
-            $person = new \app\models\message($object);
+            $person = new \app\models\Message($object);
             $records[$key] = $person;
         }
         return $records;
