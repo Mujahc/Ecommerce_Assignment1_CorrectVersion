@@ -24,7 +24,9 @@
     <p>Welcome to this Web application.</p>
     <p>We aim to please.</p>
     
-    <p id="numOfPageVisits">0 page visits.</p>
+    <script src="/resources/count.js">
+        <p id="numOfPageVisits">0 page visits.</p>
+    </script>
 
 </body>
 </html>
