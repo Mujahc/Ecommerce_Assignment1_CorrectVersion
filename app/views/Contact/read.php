@@ -23,10 +23,10 @@
     <h1>Contact us - message sent</h1>
     <?php
 		foreach($data as $index => $message){
-			echo 
+			echo
                 "<tr>
-                    <td>$message->email</td>
-                    <td>$message->name</td>
+                    <td><strong>Email: $message->email</strong></td><br>
+                    <td>Message: $message->myMessage</td><br><br>
                 </tr>";
 		}
     ?>

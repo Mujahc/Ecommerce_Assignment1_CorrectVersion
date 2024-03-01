@@ -8,6 +8,7 @@ class Message
     public $name;
     public $email;
     public $IP;
+    public $myMessage;
 
     public function __construct($object = null)
     {
@@ -18,6 +19,7 @@ class Message
         $this->name = $object->name;
         $this->email = $object->email;
         $this->IP = $object->IP;
+        $this->myMessage = $object->myMessage;
     }
 
 
@@ -30,8 +32,8 @@ class Message
         foreach ($records as $key => $value) {
             //can I typecase objects in PHP?
             $object = json_decode($value);
-            $person = new \app\models\Message($object);
-            $records[$key] = $person;
+            $message = new \app\models\Message($object);
+            $records[$key] = $message;
         }
         return $records;
     }

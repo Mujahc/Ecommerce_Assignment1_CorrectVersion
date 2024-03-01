@@ -1,5 +1,2 @@
-{"email":"amy@email.com","name":"Hi","IP":"143.119.66.25"}
-{"email":"bob@email.com","name":"I love my job!","IP":"141.78.73.72"}
-{"name":null,"email":null,"IP":"172.17.0.1"}
-{"name":null,"email":"emial@email.ocm","IP":"172.17.0.1"}
-{"name":"sdfasdasdasd","email":"emial@email.com","IP":"172.17.0.1"}
+{"name":null,"email":"johanncullaag@gmail.com","IP":"172.17.0.1","myMessage":"Hello!!!"}
+{"name":null,"email":"myName@gmail.com","IP":"172.17.0.1","myMessage":"My message???"}
