@@ -45,7 +45,7 @@ class Counter{
     //     5. Close the file (use fclose)
     public function write() {
         $count = json_encode(['count' => $this->count]);
-        $file = fopen('counter.txt', 'w');
+        $file = fopen('resources/counter.txt', 'w');
         flock($file, LOCK_EX);
         fwrite($file, $count);
         fclose($file);

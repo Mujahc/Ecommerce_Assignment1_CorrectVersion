@@ -37,7 +37,9 @@
         </div>
     </form>
 
-    <p id="numOfPageVisits">0 page visits.</p>
+    <script src="/resources/count.js">
+        <div id="numOfPageVisits">0 page visits.</div>
+    </script>
     
 </body>
 </html>

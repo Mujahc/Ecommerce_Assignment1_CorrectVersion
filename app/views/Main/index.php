@@ -25,7 +25,7 @@
     <p>We aim to please.</p>
     
     <script src="/resources/count.js">
-        <p id="numOfPageVisits">0 page visits.</p>
+        <div id="numOfPageVisits">0 page visits.</div>
     </script>
 
 </body>
